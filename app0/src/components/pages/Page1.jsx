@@ -1,8 +1,8 @@
 import React from 'react';
 const Page1 = props => {
     return (
-        <div>
-            <h1>Thie is Page 1</h1>
+        <div id="app1">
+            <h1>This is where App1 should load...</h1>
         </div>
     )
 }

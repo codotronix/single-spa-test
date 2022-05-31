@@ -15,11 +15,13 @@ function App() {
     <BrowserRouter>
       <div className="App">
         <Header />
-        <Routes>
-          <Route index element={<Page1 />} />
-          <Route path="page1" element={<Page1 />} />
-          <Route path="page2" element={<Page2 />} />
-        </Routes>
+        <div className="main-container">
+          <Routes>
+            <Route index element={<Page1 />} />
+            <Route path="app1" element={<Page1 />} />
+            <Route path="app2" element={<Page2 />} />
+          </Routes>
+        </div>
       </div>
     </BrowserRouter>
   );

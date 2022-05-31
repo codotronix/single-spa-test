@@ -18,3 +18,9 @@
   color: #eee;
   padding: 0 15px;
 }
+.main-container {
+  border: 5px double #bbb;
+  margin: 15px;
+  padding: 15px;
+  height: 100vh;
+}

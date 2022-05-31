@@ -12,7 +12,7 @@ import Header from './components/layout/header/header';
 
 function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename='app1'>
       <div className="App">
         <Header />
         <Routes>
