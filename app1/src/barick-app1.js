@@ -1,29 +1,45 @@
 import React from "react";
-import ReactDOM from 'react-dom/client';
+import ReactDOM from 'react-dom';
 import singleSpaReact from 'single-spa-react'
 import App from "./App";
 
 // console.log('1>>', document.getElementById('root'))
 
+let customProps = null
+
 const lifecycles = singleSpaReact({
     React,
-    ReactDOM: ReactDOM.createRoot(domElementGetter()),
-    rootComponent: App,
+    ReactDOM,
+    rootComponent: () => <App customProps={customProps} />,
     domElementGetter,
     errorBoundary() {
         return <div>This renders when a catastrophic error occurs</div>;
     },
 })
 
-export const { bootstrap, mount, unmount } = lifecycles
+const { mount, unmount } = lifecycles
+
+export { bootstrap, mount, unmount }
+
+function bootstrap (props) {
+    console.log('from bootstrap of app1')
+    console.log('props')
+    console.log(props)
+    if(!customProps) {
+        customProps = props
+    }
+    
+    return Promise.resolve()
+}
 
 function domElementGetter () {
-    let el = document.getElementById('app1')
-    if(!el) {
-        el = document.createElement('div')
-        el.setAttribute('id', 'app1')
-        document.body.append(el)
-    }
-    console.log('el = ', el)
+    let el = document.getElementById('static-app1')
+    // let el = document.getElementById('app1')
+    // if(!el) {
+    //     el = document.createElement('div')
+    //     el.setAttribute('id', 'app1')
+    //     document.body.append(el)
+    // }
+    // console.log('el = ', el)
     return el
 }

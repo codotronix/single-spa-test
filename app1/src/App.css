@@ -8,7 +8,6 @@
 .header {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(100px, max-content));
-  background: #000;
   height: 40px;
   align-items: center;
   justify-content: end;
@@ -17,4 +16,7 @@
   text-decoration: none;
   color: #eee;
   padding: 0 15px;
+}
+.App1 .header {
+  background-color: cornflowerblue;
 }

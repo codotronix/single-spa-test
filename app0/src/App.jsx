@@ -13,9 +13,9 @@ import Header from './components/layout/header/header';
 function App() {
   return (
     <BrowserRouter>
-      <div className="App">
+      <div className="App0">
         <Header />
-        <div className="main-container">
+        <div className="main-container1">
           <Routes>
             <Route index element={<Page1 />} />
             <Route path="app1" element={<Page1 />} />

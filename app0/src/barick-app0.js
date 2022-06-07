@@ -1,5 +1,5 @@
 import React from "react";
-import ReactDOM from 'react-dom/client';
+import ReactDOM from 'react-dom';
 import singleSpaReact from 'single-spa-react'
 import App from "./App";
 
@@ -7,7 +7,7 @@ import App from "./App";
 
 const lifecycles = singleSpaReact({
     React,
-    ReactDOM: ReactDOM.createRoot(domElementGetter()),
+    ReactDOM,
     rootComponent: App,
     domElementGetter,
     errorBoundary() {
@@ -18,12 +18,13 @@ const lifecycles = singleSpaReact({
 export const { bootstrap, mount, unmount } = lifecycles
 
 function domElementGetter () {
-    let el = document.getElementById('app0')
-    if(!el) {
-        el = document.createElement('div')
-        el.setAttribute('id', 'app0')
-        document.body.append(el)
-    }
-    console.log('el = ', el)
+    let el = document.getElementById('static-app0')
+    // let el = document.getElementById('app0')
+    // if(!el) {
+    //     el = document.createElement('div')
+    //     el.setAttribute('id', 'app0')
+    //     document.body.append(el)
+    // }
+    // console.log('el = ', el)
     return el
 }

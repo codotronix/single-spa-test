@@ -1,4 +1,8 @@
 import { registerApplication, start } from "single-spa";
+import { ReplaySubject, BehaviorSubject } from 'rxjs';
+
+
+const messenger = new BehaviorSubject('Messenger Ready');
 
 // registerApplication({
 //   name: "@single-spa/welcome",
@@ -12,7 +16,11 @@ import { registerApplication, start } from "single-spa";
 registerApplication({
   name: "@barick-poc/spa-app0",
   app: () => System.import("@barick-poc/spa-app0"),
-  activeWhen: () => true
+  activeWhen: () => true,
+  customProps: {
+    msg: 'My name is App0',
+    messenger
+  }
 });
 
 registerApplication({
@@ -22,6 +30,10 @@ registerApplication({
     const b = location.pathname.startsWith('/app1')
     console.log('active ? = ', b)
     return b
+  },
+  customProps: {
+    msg: 'My name is App1',
+    messenger
   }
 });
 
@@ -29,6 +41,10 @@ registerApplication({
   name: "@barick-poc/spa-app2",
   app: () => System.import("@barick-poc/spa-app2"),
   activeWhen: location => location.pathname.startsWith('/app2'),
+  customProps: {
+    msg: 'My name is App2',
+    messenger
+  }
 });
 
 start({
