@@ -32,6 +32,16 @@ function bootstrap (props) {
     return Promise.resolve()
 }
 
+// function mount () {
+//     console.log('Mounting App1 ...')
+//     return Promise.resolve()
+// }
+
+// function unmount () {
+//     console.log('Unounting App1 ...')
+//     return Promise.resolve()
+// }
+
 function domElementGetter () {
     let el = document.getElementById('static-app1')
     // let el = document.getElementById('app1')

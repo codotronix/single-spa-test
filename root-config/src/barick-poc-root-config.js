@@ -2,7 +2,7 @@ import { registerApplication, start } from "single-spa";
 import { ReplaySubject, BehaviorSubject } from 'rxjs';
 
 
-const messenger = new BehaviorSubject('Messenger Ready');
+const messenger = new BehaviorSubject('None');
 
 // registerApplication({
 //   name: "@single-spa/welcome",

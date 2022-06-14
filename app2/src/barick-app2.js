@@ -15,7 +15,7 @@ const lifecycles = singleSpaReact({
     },
 })
 
-const {  mount, unmount } = lifecycles
+const { mount, unmount } = lifecycles
 
 export { bootstrap, mount, unmount }
 
@@ -30,6 +30,16 @@ function bootstrap (props) {
 
     return Promise.resolve()
 }
+
+// function mount () {
+//     console.log('Mounting App2 ...')
+//     return Promise.resolve()
+// }
+
+// function unmount () {
+//     console.log('Unounting App2 ...')
+//     return Promise.resolve()
+// }
 
 function domElementGetter () {
     let el = document.getElementById('static-app2')

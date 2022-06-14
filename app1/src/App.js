@@ -14,36 +14,27 @@ import Header from './components/layout/header/header';
 function App(props) {
   console.log('props1=', props)
   const { customProps: { messenger, msg } } = props
+  const [username, setUsername] = useState('')
 
-  const listListenere = l => setLists(li => [l, ...li])
+  const loginListener = l => setUsername(l)
 
   useEffect(() => {
     // if(typeof(customProps) !== 'undefined') {
-      messenger.subscribe(listListenere)
+      messenger.subscribe(loginListener)
     // }
 
-    // return () => messenger.unsubscribe(listListenere)
+    // return () => messenger.unsubscribe(loginListener)
   }, 
   [])
 
   // console.log('customProps=', customProps)
-
-  const [lists, setLists] = useState([])
-
-  
-
-  
 
   return (
     <BrowserRouter basename='app1'>
       <div className="App1">
         <Header />
 
-        <ul>
-        {
-          lists.map(l => <li key={l}>{l}</li>)
-        }
-        </ul>
+        <h3>Logged in user: {username}</h3>
 
         <Routes>
           <Route index element={<Page1 />} />
